@@ -1,0 +1,8 @@
+{
+  "functions": {
+    "api/google": {
+      "memory": 3000,
+      "maxDuration": 60
+    }
+  }
+}
