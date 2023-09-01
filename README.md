@@ -1,82 +1,105 @@
-Contribution: 2021-07-20 20:00
+# Chatbot UI
 
-Contribution: 2021-07-20 20:01
+Chatbot UI is an open source chat UI for AI models.
 
-Contribution: 2021-07-20 20:02
+See a [demo](https://twitter.com/mckaywrigley/status/1640380021423603713?s=46&t=AowqkodyK6B4JccSOxSPew).
 
-Contribution: 2021-07-20 20:03
+![Chatbot UI](./public/screenshots/screenshot-0402023.jpg)
 
-Contribution: 2021-07-20 20:04
+## Updates
 
-Contribution: 2021-07-26 20:00
+Chatbot UI will be updated over time.
 
-Contribution: 2021-07-29 20:00
+Expect frequent improvements.
 
-Contribution: 2021-07-29 20:01
+**Next up:**
 
-Contribution: 2021-07-29 20:02
+- [ ] Sharing
+- [ ] "Bots"
 
-Contribution: 2021-07-29 20:03
+## Deploy
 
-Contribution: 2021-07-29 20:04
+**Vercel**
 
-Contribution: 2021-07-30 20:00
+Host your own live version of Chatbot UI with Vercel.
 
-Contribution: 2021-07-30 20:01
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmckaywrigley%2Fchatbot-ui)
 
-Contribution: 2021-07-30 20:02
+**Docker**
 
-Contribution: 2021-08-03 20:00
+Build locally:
 
-Contribution: 2021-08-03 20:01
+```shell
+docker build -t chatgpt-ui .
+docker run -e OPENAI_API_KEY=xxxxxxxx -p 3000:3000 chatgpt-ui
+```
 
-Contribution: 2021-08-09 20:00
+Pull from ghcr:
 
-Contribution: 2021-08-09 20:01
+```
+docker run -e OPENAI_API_KEY=xxxxxxxx -p 3000:3000 ghcr.io/mckaywrigley/chatbot-ui:main
+```
 
-Contribution: 2021-08-09 20:02
+## Running Locally
 
-Contribution: 2021-08-11 20:00
+**1. Clone Repo**
 
-Contribution: 2021-08-11 20:01
+```bash
+git clone https://github.com/mckaywrigley/chatbot-ui.git
+```
 
-Contribution: 2021-08-11 20:02
+**2. Install Dependencies**
 
-Contribution: 2021-08-11 20:03
+```bash
+npm i
+```
 
-Contribution: 2021-08-12 20:00
+**3. Provide OpenAI API Key**
 
-Contribution: 2021-08-12 20:01
+Create a .env.local file in the root of the repo with your OpenAI API Key:
 
-Contribution: 2021-08-12 20:02
+```bash
+OPENAI_API_KEY=YOUR_KEY
+```
 
-Contribution: 2021-08-12 20:03
+> You can set `OPENAI_API_HOST` where access to the official OpenAI host is restricted or unavailable, allowing users to configure an alternative host for their specific needs.
 
-Contribution: 2021-08-24 20:00
+> Additionally, if you have multiple OpenAI Organizations, you can set `OPENAI_ORGANIZATION` to specify one.
 
-Contribution: 2021-08-24 20:01
+**4. Run App**
 
-Contribution: 2021-08-24 20:02
+```bash
+npm run dev
+```
 
-Contribution: 2021-08-27 20:00
+**5. Use It**
 
-Contribution: 2021-08-27 20:01
+You should be able to start chatting.
 
-Contribution: 2021-08-27 20:02
+## Configuration
 
-Contribution: 2021-08-30 20:00
+When deploying the application, the following environment variables can be set:
 
-Contribution: 2021-08-30 20:01
+| Environment Variable              | Default value                  | Description                                                                                                                               |
+| --------------------------------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| OPENAI_API_KEY                    |                                | The default API key used for authentication with OpenAI                                                                                   |
+| OPENAI_API_HOST                   | `https://api.openai.com`       | The base url, for Azure use `https://<endpoint>.openai.azure.com`                                                                         |
+| OPENAI_API_TYPE                   | `openai`                       | The API type, options are `openai` or `azure`                                                                                             |
+| OPENAI_API_VERSION                | `2023-03-15-preview`           | Only applicable for Azure OpenAI                                                                                                          |
+| AZURE_DEPLOYMENT_ID               |                                | Needed when Azure OpenAI, Ref [Azure OpenAI API](https://learn.microsoft.com/zh-cn/azure/cognitive-services/openai/reference#completions) |
+| OPENAI_ORGANIZATION               |                                | Your OpenAI organization ID                                                                                                               |
+| DEFAULT_MODEL                     | `gpt-3.5-turbo`                | The default model to use on new conversations, for Azure use `gpt-35-turbo`                                                               |
+| NEXT_PUBLIC_DEFAULT_SYSTEM_PROMPT | [see here](utils/app/const.ts) | The default system prompt to use on new conversations                                                                                     |
+| NEXT_PUBLIC_DEFAULT_TEMPERATURE   | 1                              | The default temperature to use on new conversations                                                                                       |
+| GOOGLE_API_KEY                    |                                | See [Custom Search JSON API documentation][GCSE]                                                                                          |
+| GOOGLE_CSE_ID                     |                                | See [Custom Search JSON API documentation][GCSE]                                                                                          |
 
-Contribution: 2021-08-31 20:00
+If you do not provide an OpenAI API key with `OPENAI_API_KEY`, users will have to provide their own key.
 
-Contribution: 2021-08-31 20:01
+If you don't have an OpenAI API key, you can get one [here](https://platform.openai.com/account/api-keys).
 
-Contribution: 2021-09-03 20:00
+## Contact
 
-Contribution: 2021-09-03 20:01
+If you have any questions, feel free to reach out to Mckay on [Twitter](https://twitter.com/mckaywrigley).
 
-Contribution: 2021-09-03 20:02
-
-Contribution: 2021-09-03 20:03
-
+[GCSE]: https://developers.google.com/custom-search/v1/overview
